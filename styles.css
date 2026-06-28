@@ -1,0 +1,96 @@
+:root {
+  --bg:        #ffffff;
+  --ink:       #1a232e;
+  --ink-soft:  #55626f;
+  --ink-faint: #8b97a3;
+  --line:      #e4e9ef;
+  --line-2:    #cbd5e1;
+  --accent:    #2563eb;
+  --best-bg:   #e8f4ee;
+  --best-ink:  #0b6b46;
+  --zebra:     #fafbfd;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { max-width: 1920px; margin: 0 auto; padding: 0 22px 64px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { font-size: clamp(1.7rem, 4.2vw, 2.5rem); line-height: 1.18; letter-spacing: -0.015em; margin: 0 0 .3em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.01em; margin: 2.4em 0 .2em; padding-bottom: .3em; border-bottom: 2px solid var(--line); }
+h3 { font-size: 1.08rem; margin: 1.8em 0 .2em; }
+
+.head { padding: 44px 0 8px; border-bottom: 1px solid var(--line); }
+.eyebrow { color: var(--ink-faint); font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 600; margin: 0 0 12px; }
+.subtitle { font-size: 1.12rem; color: var(--ink-soft); margin: 0 0 .6em; }
+.byline { color: var(--ink-soft); font-size: .92rem; margin: 0 0 .9em; }
+.links { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 22px; }
+.links a {
+  display: inline-block; font-weight: 600; font-size: .9rem;
+  padding: 7px 14px; border: 1px solid var(--line-2); border-radius: 8px; color: var(--accent);
+}
+.links a:hover { background: #f3f6fb; text-decoration: none; }
+.intro {color: var(--ink-soft); font-size: 1.02rem; margin: 0 0 6px; }
+
+.caption { color: var(--ink-soft); font-size: .92rem; margin: .4em 0 .9em; }
+.legend { color: var(--ink-soft); font-size: .85rem; margin: .8em 0 0; }
+.legend b { color: var(--ink); font-weight: 600; }
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; background: #fff; }
+th, td { padding: 10px 13px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--line); }
+th:first-child, td:first-child { text-align: left; }
+thead th {
+  background: #f7f9fc; color: var(--ink-soft); font-size: .8rem; font-weight: 700;
+  border-bottom: 2px solid var(--line-2); position: sticky; top: 0;
+}
+tbody tr:nth-child(even) { background: var(--zebra); }
+tbody tr:last-child td { border-bottom: none; }
+td.tool, th.tool { font-weight: 600; }
+td.best { color: var(--best-ink); font-weight: 700; background: var(--best-bg); }
+.arrow { color: var(--ink-faint); font-weight: 400; font-size: .82em; }
+.dash { color: var(--ink-faint); }
+.num { font-variant-numeric: tabular-nums; }
+
+.audio-scroll { border-radius: 10px; }
+.audio-table th, .audio-table td { vertical-align: top; border-right: 1px solid var(--line); }
+.audio-table th:last-child, .audio-table td:last-child { border-right: none; }
+.audio-table thead th { white-space: normal; min-width: 132px; line-height: 1.25; }
+.audio-table thead th:first-child { min-width: 220px; }
+
+.audio-table th:first-child, .audio-table td:first-child {
+  position: sticky; left: 0; z-index: 1; background: #fff; border-right: 2px solid var(--line-2);
+}
+.audio-table thead th:first-child { background: #f7f9fc; z-index: 2; }
+.audio-table tbody tr:nth-child(even) td:first-child { background: var(--zebra); }
+
+.src-cell .src-meta { font-size: .76rem; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.src-cell .src-text { font-size: .85rem; color: var(--ink-soft); font-style: italic; white-space: normal; margin: 3px 0 7px; }
+.tool-head .th-type { display: block; font-size: .72rem; font-weight: 500; color: var(--ink-faint); margin-top: 2px; }
+
+audio { width: 100%; min-width: 120px; height: 36px; margin-top: 2px; }
+.tgt-ref { display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; }
+.tgt-ref span { font-size: .8rem; color: var(--ink-soft); }
+.tgt-ref audio { width: 180px; min-width: 0; display: inline-block; vertical-align: middle; }
+
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); }
+footer p { color: var(--ink-faint); font-size: .85rem; margin: 0; }
+
+@media (max-width: 620px) {
+  h2 { font-size: 1.3rem; }
+  .audio-table thead th:first-child { min-width: 170px; }
+  .audio-table th:first-child, .audio-table td:first-child { min-width: 170px; }
+}

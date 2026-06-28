@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmarking Deployed Real-Time Voice Conversion Tools — results &amp; audio</title>
+  <meta name="description" content="Measured results and converted audio samples from a quality benchmark of seven deployed real-time voice-conversion tools.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+
+  <header class="head">
+    <p class="eyebrow">NTNU · Faculty of Information Technology and Electrical Engineering · Department of Computer Science · 2026</p>
+    <h1>Benchmarking Deployed Real-Time Voice Conversion Tools</h1>
+    <p class="subtitle">A unified, reproducible quality comparison of open-source and commercial voice changers.</p>
+    <p class="byline">Author: Eivind Nesje</p>
+    <p class="byline">Supervisor: Theoharis Theoharis</p>
+    <p class="links">
+      <a href="https://github.com/eivindnesje/Benchmarks" target="_blank" data-link="thesis">Benchmark code</a> 
+      <a href="#" data-link="code">Thesis (PDF)</a>
+    </p>
+    <p class="intro">
+      This page supplements the thesis. It reports the benchmark&rsquo;s measured results and lets you
+      listen to the converted audio they were computed from. Six deployed voice changers, in seven
+      configurations, were each run over the same 138 utterances on one machine and scored on
+      intelligibility, naturalness, and speaker identity. The audio below is a curated subset of that
+      benchmark.
+    </p>
+  </header>
+
+  <section>
+    <h2>Results</h2>
+    <p class="caption">
+      Mean over all 138 converted utterances per configuration. Arrows give the better direction; the
+      best value in each quality column is marked in green. &ldquo;&mdash;&rdquo; means the
+      metric is not available for that tool.
+    </p>
+    <div class="table-scroll">
+      <table id="quality-table"></table>
+    </div>
+    <p class="legend">
+      <b>WER / CER</b> word / character error rate (intelligibility).
+      <b>UTMOS, DNSMOS</b> predicted naturalness, 1&ndash;5.
+      <b>SECS</b> speaker-embedding cosine similarity: <b>src</b> = to the source voice (lower = identity
+      moved away), <b>cons</b> = output consistency, <b>tgt</b> = to a clean target recording (the
+      canonical identity metric, computable only for Seed-VC). The two reference-free SECS proxies are
+      best read together with the quality metrics, not alone.
+    </p>
+
+    <h3>Resource usage</h3>
+    <p class="caption">Steady-state usage during conversion, read from the operating system. Indicative, not precise.</p>
+    <div class="table-scroll">
+      <table id="resource-table"></table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Audio samples</h2>
+    <p class="caption">
+      The same source clip converted by every tool. Each tool renders one female and one male target
+      voice; the two tables below correspond to those two target genders. Seed-VC is conditioned on a
+      reference clip &mdash; its target voices are: <span id="seedvc-targets"></span>
+    </p>
+
+    <h3>Converted to a female target voice</h3>
+    <div class="table-scroll audio-scroll">
+      <table id="audio-female" class="audio-table"></table>
+    </div>
+
+    <h3>Converted to a male target voice</h3>
+    <div class="table-scroll audio-scroll">
+      <table id="audio-male" class="audio-table"></table>
+    </div>
+  </section>
+
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
