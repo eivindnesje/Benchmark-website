@@ -3,7 +3,7 @@ window.BENCH = {};
 BENCH.tools = [
   { key: "seedvc",          name: "Seed-VC",            type: "Zero-shot any-to-any",      cardinality: "any-to-any",  availability: "Free / open-source", cpu: 16,  memMB: 2000, gpu: 20,
     note: "Target is a short reference clip given at inference time. The only tool with a clean target recording, so its canonical SECS-tgt can be computed." },
-  { key: "vonovox",         name: "Vonovox",            type: "Retrieval-based (RVC)",     cardinality: "any-to-many", availability: "Free / open-source", cpu: 7,   memMB: 2200, gpu: 10,
+  { key: "vonovox",         name: "Vonovox",            type: "Retrieval-based (RVC)",     cardinality: "any-to-many", availability: "Free / source-visible", cpu: 7,   memMB: 2200, gpu: 10,
     note: "Loads the same RVC model files as w-okada / RVC, but is built to run them on the GPU." },
   { key: "dubbingai",       name: "DubbingAI",          type: "Commercial, preset voices", cardinality: "any-to-many", availability: "Commercial (paid)",  cpu: 1,   memMB: 220,  gpu: 0,
     note: "Closed product; target is a vendor preset. Reaches the top tier on a negligible footprint." },
